@@ -14,3 +14,7 @@ pg_dump "your_connection_string" -s -F p -v -f structure_only.sql
 > dump compressed version
 
 pg_dump "your_connection_string" -F c -v -f complete_backup.dump
+
+> restore with compressed .dump file
+
+pg_restore -d "postgresql://root:root@127.0.0.1:5432/new" --clean --no-owner --no-privileges -v complete_backup.dump
